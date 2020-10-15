@@ -13,4 +13,10 @@ pluginManagement {
     }
 }
 
-include(":koap")
+include(
+    ":koap",
+    ":gh-pages"
+)
+
+// Rename to play nice with Kotlin/JS namespacing (i.e. dashes are not allowed in Javascript names).
+rootProject.children.first { it.name == "gh-pages" }.name = "webapp"

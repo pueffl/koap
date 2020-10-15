@@ -1,5 +1,6 @@
 plugins {
     kotlin("multiplatform")
+    id("org.jetbrains.dokka")
     id("org.jmailen.kotlinter")
     java // Needed by JaCoCo for multiplatform projects.
     jacoco
@@ -31,7 +32,6 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(kotlin("stdlib"))
                 implementation("com.squareup.okio:okio-multiplatform:2.6.0")
             }
         }

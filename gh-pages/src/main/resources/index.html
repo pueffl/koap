@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="UTF-8">
+        <title>KoAP</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="webapp.js"></script>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <table>
+            <tr>
+                <td>
+                    <label for="udp-message-type">Type:</label>
+                    <select id="udp-message-type" name="udp-message-type">
+                        <option selected="selected" value="Confirmable">Confirmable</option>
+                        <option value="NonConfirmable">NonConfirmable</option>
+                        <option value="Acknowledgement">Acknowledgement</option>
+                        <option value="Reset">Reset</option>
+                    </select>
+                    <br/>
+
+                    <label for="udp-message-code">Code:</label>
+                    <select id="udp-message-code" name="udp-message-code">
+                        <option selected="selected" value="GET">GET</option>
+                        <option value="POST">POST</option>
+                        <option value="PUT">PUT</option>
+                        <option value="DELETE">DELETE</option>
+                        <option disabled>──────────</option>
+                        <option value="Created">Created</option>
+                        <option value="Deleted">Deleted</option>
+                        <option value="Valid">Valid</option>
+                        <option value="Changed">Changed</option>
+                        <option value="Content">Content</option>
+                        <option value="BadRequest">BadRequest</option>
+                        <option value="Unauthorized">Unauthorized</option>
+                        <option value="BadOption">BadOption</option>
+                        <option value="Forbidden">Forbidden</option>
+                        <option value="NotFound">NotFound</option>
+                        <option value="MethodNotAllowed">MethodNotAllowed</option>
+                        <option value="NotAcceptable">NotAcceptable</option>
+                        <option value="PreconditionFailed">PreconditionFailed</option>
+                        <option value="RequestEntityTooLarge">RequestEntityTooLarge</option>
+                        <option value="UnsupportedContentFormat">UnsupportedContentFormat</option>
+                        <option value="InternalServerError">InternalServerError</option>
+                        <option value="NotImplemented">NotImplemented</option>
+                        <option value="BadGateway">BadGateway</option>
+                        <option value="ServiceUnavailable">ServiceUnavailable</option>
+                        <option value="GatewayTimeout">GatewayTimeout</option>
+                        <option value="ProxyingNotSupported">ProxyingNotSupported</option>
+                        <option disabled>──────────</option>
+                        <option value="Raw">Other</option>
+                    </select>
+                    <br/>
+
+                    <label for="udp-message-id">ID:</label>
+                    <input type="text" id="udp-message-id" value="0xFEED">
+                    <br/>
+
+                    <label for="udp-message-token">Token:</label>
+                    <input type="text" id="udp-message-token" value="0xCAFE">
+                    <br/>
+
+                    <!-- todo -->
+                    Options
+                    <select id="udp-message-options">
+                        <option value="IfMatch">IfMatch</option>
+                        <option value="UriHost">UriHost</option>
+                        <option value="ETag">ETag</option>
+                        <option value="IfNoneMatch">IfNoneMatch</option>
+                        <option value="Observe">Observe</option>
+                        <option value="UriPort">UriPort</option>
+                        <option value="LocationPath">LocationPath</option>
+                        <option value="UriPath" selected>UriPath</option>
+                        <option value="ContentFormat">ContentFormat</option>
+                        <option value="MaxAge">MaxAge</option>
+                        <option value="UriQuery">UriQuery</option>
+                        <option value="Accept">Accept</option>
+                        <option value="LocationQuery">LocationQuery</option>
+                        <option value="ProxyUri">ProxyUri</option>
+                        <option value="ProxyScheme">ProxyScheme</option>
+                        <option value="Size1">Size1</option>
+                    </select>
+                    <br/>
+
+                    <label for="udp-message-payload">Token:</label>
+                    <input type="text" id="udp-message-payload" value="">
+                    <br/>
+
+                    <input type="button" id="encode" value="Encode">
+                </td>
+
+                <td>
+                    <textarea id="hex" placeholder="42 01 F3 85 CA FE B7 ..."></textarea>
+                    <br/>
+
+                    <input type="button" id="decode" value="Decode">
+                </td>
+            </tr>
+        </table>
+
+        <script type="text/javascript">
+            $('#decode').click(function() {
+                alert($('#udp-message').serializeArray());
+            });
+        </script>
+    </body>
+</html>
